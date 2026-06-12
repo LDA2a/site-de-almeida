@@ -1,0 +1,33 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 460 150" role="img" aria-label="De Almeida Menuiseries">
+  <defs>
+    <linearGradient id="glass" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#dfe8f2"/>
+      <stop offset="1" stop-color="#b7c6da"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Icône : fenêtre / porte architecturale stylisée -->
+  <g transform="translate(20 14)">
+    <!-- cadre extérieur, arche -->
+    <path d="M6 118 V40 A48 48 0 0 1 102 40 V118 Z"
+          fill="#ffffff" stroke="#2c3e50" stroke-width="6" stroke-linejoin="round"/>
+    <!-- vitrage -->
+    <path d="M16 110 V42 A38 38 0 0 1 92 42 V110 Z" fill="url(#glass)"/>
+    <!-- meneau vertical -->
+    <rect x="51" y="12" width="6" height="98" fill="#2c3e50"/>
+    <!-- traverse horizontale -->
+    <rect x="16" y="66" width="76" height="6" fill="#2c3e50"/>
+    <!-- petit reflet -->
+    <path d="M24 104 V52 A30 30 0 0 1 40 28" fill="none" stroke="#ffffff" stroke-width="3" stroke-linecap="round" opacity="0.7"/>
+    <!-- seuil -->
+    <rect x="0" y="118" width="108" height="8" rx="2" fill="#4a6fa5"/>
+  </g>
+
+  <!-- Texte -->
+  <g transform="translate(150 0)">
+    <text x="0" y="74" font-family="Georgia, 'Times New Roman', serif" font-size="46" fill="#2c3e50">De Almeida</text>
+    <text x="2" y="108" font-family="Arial, Helvetica, sans-serif" font-size="22" letter-spacing="9.5" fill="#4a6fa5">MENUISERIES</text>
+    <!-- filet décoratif -->
+    <rect x="2" y="86" width="232" height="2.5" fill="#c9d4e2"/>
+  </g>
+</svg>
