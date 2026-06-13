@@ -58,6 +58,23 @@
     el.textContent = new Date().getFullYear();
   });
 
+  /* ---------- Carte : chargement au clic (perf + vie privée) ---------- */
+  const mapEmbed = document.getElementById("mapEmbed");
+  const mapLoad = document.getElementById("mapLoad");
+  if (mapEmbed && mapLoad) {
+    mapLoad.addEventListener("click", () => {
+      const src = mapEmbed.getAttribute("data-map-src");
+      const frame = document.createElement("iframe");
+      frame.title = "Carte — Lecci / Porto-Vecchio, Corse-du-Sud";
+      frame.src = src;
+      frame.loading = "lazy";
+      frame.referrerPolicy = "no-referrer-when-downgrade";
+      frame.setAttribute("allowfullscreen", "");
+      mapEmbed.innerHTML = "";
+      mapEmbed.appendChild(frame);
+    });
+  }
+
   /* ---------- Formulaire de contact ---------- */
   const form = document.getElementById("contactForm");
   if (form) {
