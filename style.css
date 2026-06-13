@@ -471,3 +471,8 @@ p { color: var(--anthracite-clair); }
   .hero--cinematic { padding-bottom: 90px; }
   .hero-rail-wrap { display: none; }
 }
+
+/* Logo Piscines Ibiza */
+.ibiza-logo { display: block; height: auto; background: #fff; border-radius: 14px; }
+.ibiza-logo--hero { width: 86px; margin-bottom: 18px; box-shadow: 0 10px 26px rgba(0,0,0,0.28); }
+.ibiza-logo--brand { width: 132px; margin: 0 auto 20px; padding: 6px; box-shadow: var(--shadow-sm); border: 1px solid var(--ligne); }
