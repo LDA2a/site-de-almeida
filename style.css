@@ -326,6 +326,9 @@ p { color: var(--anthracite-clair); }
 .form-note { font-size: 0.84rem; color: var(--gris); margin-top: 6px; }
 .form-success { display: none; padding: 16px 18px; border-radius: var(--radius-sm); background: rgba(46,125,175,0.1); border: 1px solid var(--bleu-mer); color: var(--bleu-mer-fonce); font-weight: 500; margin-bottom: 18px; }
 .form-success.show { display: block; }
+.form-error { display: none; padding: 16px 18px; border-radius: var(--radius-sm); background: rgba(193,115,90,0.1); border: 1px solid var(--terracotta); color: var(--terracotta-fonce); font-weight: 500; margin-bottom: 18px; }
+.form-error.show { display: block; }
+.form-error a { text-decoration: underline; }
 
 /* Carte */
 .map-embed { position: relative; border-radius: var(--radius); overflow: hidden; box-shadow: var(--shadow); border: 1px solid var(--ligne); }

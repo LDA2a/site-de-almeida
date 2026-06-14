@@ -75,37 +75,58 @@
     });
   }
 
-  /* ---------- Formulaire de contact ---------- */
+  /* ---------- Formulaire de contact (envoi auto via FormSubmit) ---------- */
   const form = document.getElementById("contactForm");
   if (form) {
-    form.addEventListener("submit", (e) => {
+    // Adresse de réception des demandes de devis
+    const ENDPOINT = "https://formsubmit.co/ajax/almeidanuno20@gmail.com";
+
+    form.addEventListener("submit", async (e) => {
       e.preventDefault();
       if (!form.checkValidity()) {
         form.reportValidity();
         return;
       }
       const data = new FormData(form);
-      const nom = encodeURIComponent(data.get("nom") || "");
-      const tel = encodeURIComponent(data.get("telephone") || "");
-      const email = encodeURIComponent(data.get("email") || "");
-      const sujet = encodeURIComponent(data.get("sujet") || "Demande d'information");
-      const msg = encodeURIComponent(data.get("message") || "");
-      const corps =
-        `Nom : ${decodeURIComponent(nom)}%0D%0A` +
-        `Téléphone : ${decodeURIComponent(tel)}%0D%0A` +
-        `E-mail : ${decodeURIComponent(email)}%0D%0A%0D%0A` +
-        `${decodeURIComponent(msg)}`;
-
-      // Confirmation visuelle
       const success = document.getElementById("formSuccess");
-      if (success) {
-        success.classList.add("show");
-        success.scrollIntoView({ behavior: "smooth", block: "center" });
+      const errorBox = document.getElementById("formError");
+      const btn = form.querySelector('button[type="submit"]');
+      if (errorBox) errorBox.classList.remove("show");
+
+      const payload = {
+        Nom: data.get("nom") || "",
+        Téléphone: data.get("telephone") || "",
+        "E-mail": data.get("email") || "",
+        "Projet concerné": data.get("sujet") || "",
+        Message: data.get("message") || "",
+        _subject: "Nouvelle demande de devis — site De Almeida",
+        _template: "table",
+        _replyto: data.get("email") || "",
+        _captcha: "false",
+      };
+
+      if (btn) { btn.dataset.label = btn.textContent; btn.textContent = "Envoi en cours…"; btn.disabled = true; }
+
+      try {
+        const res = await fetch(ENDPOINT, {
+          method: "POST",
+          headers: { "Content-Type": "application/json", Accept: "application/json" },
+          body: JSON.stringify(payload),
+        });
+        if (!res.ok) throw new Error("HTTP " + res.status);
+        if (success) {
+          success.classList.add("show");
+          success.scrollIntoView({ behavior: "smooth", block: "center" });
+        }
+        form.reset();
+      } catch (err) {
+        if (errorBox) {
+          errorBox.classList.add("show");
+          errorBox.scrollIntoView({ behavior: "smooth", block: "center" });
+        }
+      } finally {
+        if (btn) { btn.textContent = btn.dataset.label || "Envoyer ma demande"; btn.disabled = false; }
       }
-      // Ouvre le client mail pré-rempli (solution sans backend)
-      window.location.href =
-        `mailto:contact@sarl-dealmeida.fr?subject=${sujet}&body=${corps}`;
-      form.reset();
     });
   }
 })();
