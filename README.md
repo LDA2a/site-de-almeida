@@ -1,5 +1,7 @@
 # Site vitrine — SARL De Almeida
 
+### 👉 [Voir le site en ligne](https://lda2a.github.io/site-de-almeida/)
+
 Site vitrine de la **SARL De Almeida** (Lecci, Corse-du-Sud), entreprise multi-activités
 de l'habitat dirigée par **Nuno de Almeida** :
 
