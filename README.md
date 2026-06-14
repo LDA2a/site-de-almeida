@@ -64,16 +64,15 @@ Chaque page dispose de balises `title`/`description`, Open Graph, et de données
 structurées **schema.org** (`LocalBusiness` / `Service` / `Store`), optimisées pour les
 recherches locales en Corse-du-Sud (Porto-Vecchio, Bonifacio, Figari).
 
-## ⚙️ À personnaliser avant mise en ligne
+## ⚙️ Configuration en place
 
-- **Nom de domaine** : remplacer `https://www.sarl-dealmeida.fr/` (balises canoniques,
-  Open Graph, sitemap) par le domaine réel.
-- **E-mail du formulaire** : dans `script.js`, l'adresse `contact@sarl-dealmeida.fr`
-  (le formulaire ouvre le client mail ; pour un envoi serveur, brancher un service type
-  Formspree, Netlify Forms ou un back-end).
-- **Réseaux sociaux** : liens Instagram / Facebook Piscines Ibiza déjà intégrés.
+- **Nom de domaine** : `https://dealmeida-maitrise-oeuvre.fr` (balises canoniques, Open Graph,
+  sitemap, robots). À ajuster ici si le domaine final diffère.
+- **Formulaire de devis** : envoi automatique via **FormSubmit** vers `almeidanuno20@gmail.com`
+  (voir `script.js`). Activation faite. Pour changer l'adresse, modifier la constante `ENDPOINT`.
+- **Réseaux sociaux** : liens Instagram / Facebook Piscines Ibiza intégrés.
 - **Photos Instagram/Facebook** : non récupérables automatiquement (comptes protégés) —
-  à ajouter manuellement dans `images/` si souhaité.
+  à ajouter manuellement dans `public/images/` si souhaité.
 
 ---
 
