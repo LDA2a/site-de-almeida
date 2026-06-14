@@ -13,7 +13,10 @@ de l'habitat dirigée par **Nuno de Almeida** :
 
 ## 🧱 Stack
 
-Site 100 % statique (HTML / CSS / JS), sans build ni dépendance.
+Site statique (HTML / CSS / JS) **empaqueté avec [Vite](https://vitejs.dev/)** —
+ce qui le rend déployable directement sur Hostinger (Vite figure parmi les frameworks
+pris en charge). Vite ne sert qu'à builder : aucune logique applicative, le site reste
+du HTML/CSS/JS pur.
 
 | Fichier | Rôle |
 |---|---|
@@ -26,16 +29,32 @@ Site 100 % statique (HTML / CSS / JS), sans build ni dépendance.
 | `style.css` | Design (palette méditerranéenne) + responsive |
 | `script.js` | Menu mobile, header au scroll, animations, formulaire |
 | `logo-menuiseries.svg` | Logo « De Almeida Menuiseries » (créé sur mesure) |
-| `images/` | Photos (chantiers, réalisations, modèles de piscines) |
-| `sitemap.xml`, `robots.txt` | SEO |
+| `public/images/` | Photos (chantiers, réalisations, modèles de piscines) |
+| `public/sitemap.xml`, `public/robots.txt` | SEO (copiés tels quels dans le build) |
+| `vite.config.js` | Configuration multi-pages (6 points d'entrée HTML) |
+
+> Les fichiers du dossier `public/` sont recopiés à l'identique à la racine du site
+> (URL stables `images/…`, `robots.txt`, `sitemap.xml`). Le CSS et le JS sont eux
+> regroupés et versionnés (cache-busting) dans `dist/assets/`.
 
 ## 💻 Lancer en local
 
-Ouvrez `index.html` dans un navigateur, ou servez le dossier :
-
 ```bash
-npx serve .
+npm install      # installe Vite (une seule fois)
+npm run dev      # serveur de dev avec rechargement à chaud
+npm run build    # génère le site final dans dist/
+npm run preview  # prévisualise le build de production
 ```
+
+## 🚀 Déploiement Hostinger
+
+Hostinger détecte le projet **Vite** et exécute automatiquement `npm install`
+puis `npm run build`. Réglages attendus :
+
+- **Build command** : `npm run build`
+- **Output / publish directory** : `dist`
+
+Aucune autre configuration n'est nécessaire.
 
 ## 🔎 SEO
 
